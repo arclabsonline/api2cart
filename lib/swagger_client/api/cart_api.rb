@@ -663,8 +663,6 @@ module SwaggerClient
     # @param cart_id Store’s identifier which you can get from cart_list method
     # @param store_url A web address of a store that you would like to connect to API2Cart
     # @param store_id Store Id
-    # @param seller_id Seller Id
-    # @param marketplaces_ids Comma separated marketplaces ids
     # @param [Hash] opts the optional parameters
     # @option opts [String] :bridge_url This parameter allows to set up store with custom bridge url (you must use store_root parameter if a bridge folder is not in the root folder of the store)
     # @option opts [String] :store_root Absolute path to the store root directory (used with \&quot;bridge_url\&quot; parameter)
@@ -678,6 +676,8 @@ module SwaggerClient
     # @option opts [String] :ftp_password FTP Password
     # @option opts [Integer] :ftp_port FTP Port
     # @option opts [String] :ftp_store_dir FTP Store dir
+    # @option opts [String] :seller_id Seller Id
+    # @option opts [String] :marketplaces_ids Comma separated marketplaces ids
     # @option opts [String] :api_key_3dcart 3DCart API Key
     # @option opts [String] :admin_account It&#39;s a BigCommerce account for which API is enabled
     # @option opts [String] :api_path BigCommerce API URL
@@ -715,8 +715,8 @@ module SwaggerClient
     # @option opts [String] :amazon_access_key_id Amazon Secret Key Id
     # @option opts [String] :environment  (default to production)
     # @return [InlineResponse2006]
-    def cart_create(cart_id, store_url, store_id, seller_id, marketplaces_ids, opts = {})
-      data, _status_code, _headers = cart_create_with_http_info(cart_id, store_url, store_id, seller_id, marketplaces_ids, opts)
+    def cart_create(cart_id, store_url, store_id, opts = {})
+      data, _status_code, _headers = cart_create_with_http_info(cart_id, store_url, store_id, opts)
       return data
     end
 
@@ -777,7 +777,7 @@ module SwaggerClient
     # @option opts [String] :amazon_access_key_id Amazon Secret Key Id
     # @option opts [String] :environment 
     # @return [Array<(InlineResponse2006, Fixnum, Hash)>] InlineResponse2006 data, response status code and response headers
-    def cart_create_with_http_info(cart_id, store_url, store_id, seller_id, marketplaces_ids, opts = {})
+    def cart_create_with_http_info(cart_id, store_url, store_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: CartApi.cart_create ..."
       end
@@ -793,14 +793,7 @@ module SwaggerClient
       if @api_client.config.client_side_validation && store_id.nil?
         fail ArgumentError, "Missing the required parameter 'store_id' when calling CartApi.cart_create"
       end
-      # verify the required parameter 'seller_id' is set
-      if @api_client.config.client_side_validation && seller_id.nil?
-        fail ArgumentError, "Missing the required parameter 'seller_id' when calling CartApi.cart_create"
-      end
-      # verify the required parameter 'marketplaces_ids' is set
-      if @api_client.config.client_side_validation && marketplaces_ids.nil?
-        fail ArgumentError, "Missing the required parameter 'marketplaces_ids' when calling CartApi.cart_create"
-      end
+
       # resource path
       local_var_path = "/cart.create.json"
 
@@ -809,8 +802,8 @@ module SwaggerClient
       query_params[:'cart_id'] = cart_id
       query_params[:'store_url'] = store_url
       query_params[:'store_id'] = store_id
-      query_params[:'seller_id'] = seller_id
-      query_params[:'marketplaces_ids'] = marketplaces_ids
+      query_params[:'seller_id'] = opts[:'seller_id'] if !opts[:'seller_id'].nil?
+      query_params[:'marketplaces_ids'] = opts[:'marketplaces_ids'] if !opts[:'marketplaces_ids'].nil?
       query_params[:'bridge_url'] = opts[:'bridge_url'] if !opts[:'bridge_url'].nil?
       query_params[:'store_root'] = opts[:'store_root'] if !opts[:'store_root'].nil?
       query_params[:'store_key'] = opts[:'store_key'] if !opts[:'store_key'].nil?

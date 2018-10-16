@@ -645,7 +645,7 @@ Name | Type | Description  | Notes
 
 
 # **cart_create**
-> InlineResponse2006 cart_create(cart_id, store_url, store_id, seller_id, marketplaces_ids, opts)
+> InlineResponse2006 cart_create(cart_id, store_url, store_id, opts)
 
 
 
@@ -725,7 +725,7 @@ opts = {
 }
 
 begin
-  result = api_instance.cart_create(cart_id, store_url, opts)
+  result = api_instance.cart_create(cart_id, store_url, store_id, opts)
   p result
 rescue SwaggerClient::ApiError => e
   puts "Exception when calling CartApi->cart_create: #{e}"
