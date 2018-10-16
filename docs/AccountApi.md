@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **account_cart_add**
-> InlineResponse2006 account_cart_add(cart_id, store_url, amazon_seller_id, amazon_marketplaces_ids, opts)
+> InlineResponse2006 account_cart_add(cart_id, store_url, opts)
 
 
 
@@ -35,10 +35,6 @@ cart_id = "cart_id_example" # String | Store’s identifier which you can get fr
 
 store_url = "store_url_example" # String | A web address of a store that you would like to connect to API2Cart
 
-amazon_seller_id = "amazon_seller_id_example" # String | Seller Id
-
-amazon_marketplaces_ids = "amazon_marketplaces_ids_example" # String | Comma separated marketplaces ids
-
 opts = { 
   bridge_url: "bridge_url_example", # String | This parameter allows to set up store with custom bridge url (you must use store_root parameter if a bridge folder is not in the root folder of the store)
   store_root: "store_root_example", # String | Absolute path to the store root directory (used with \"bridge_url\" parameter)
@@ -55,6 +51,8 @@ opts = {
   amazon_access_token: "amazon_access_token_example", # String | Access token authorizing the app to access resources on behalf of a user
   amazon_secret_key: "amazon_secret_key_example", # String | Amazon Secret Key
   amazon_access_key_id: "amazon_access_key_id_example", # String | Amazon Secret Key Id
+  amazon_seller_id: "amazon_seller_id_example", # String | Seller Id
+  amazon_marketplaces_ids: "amazon_marketplaces_ids_example", # String | Comma separated marketplaces ids
   aspdotnetstorefront_api_user: "aspdotnetstorefront_api_user_example", # String | It's a AspDotNetStorefront account for which API is available
   aspdotnetstorefront_api_pass: "aspdotnetstorefront_api_pass_example", # String | AspDotNetStorefront API Password
   bigcommerceapi_admin_account: "bigcommerceapi_admin_account_example", # String | It's a BigCommerce account for which API is enabled
@@ -89,7 +87,7 @@ opts = {
 }
 
 begin
-  result = api_instance.account_cart_add(cart_id, store_url, amazon_seller_id, amazon_marketplaces_ids, opts)
+  result = api_instance.account_cart_add(cart_id, store_url, opts)
   p result
 rescue SwaggerClient::ApiError => e
   puts "Exception when calling AccountApi->account_cart_add: #{e}"

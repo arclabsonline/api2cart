@@ -671,10 +671,6 @@ store_url = "store_url_example" # String | A web address of a store that you wou
 
 store_id = "store_id_example" # String | Store Id
 
-seller_id = "seller_id_example" # String | Seller Id
-
-marketplaces_ids = "marketplaces_ids_example" # String | Comma separated marketplaces ids
-
 opts = { 
   bridge_url: "bridge_url_example", # String | This parameter allows to set up store with custom bridge url (you must use store_root parameter if a bridge folder is not in the root folder of the store)
   store_root: "store_root_example", # String | Absolute path to the store root directory (used with \"bridge_url\" parameter)
@@ -689,6 +685,8 @@ opts = {
   ftp_port: 56, # Integer | FTP Port
   ftp_store_dir: "ftp_store_dir_example", # String | FTP Store dir
   api_key_3dcart: "api_key_3dcart_example", # String | 3DCart API Key
+  amazon_seller_id: "amazon_seller_id_example", # String | Seller Id
+  amazon_marketplaces_ids: "amazon_marketplaces_ids_example", # String | Comma separated marketplaces ids
   admin_account: "admin_account_example", # String | It's a BigCommerce account for which API is enabled
   api_path: "api_path_example", # String | BigCommerce API URL
   api_key: "api_key_example", # String | Bigcommerce API Key
@@ -727,7 +725,7 @@ opts = {
 }
 
 begin
-  result = api_instance.cart_create(cart_id, store_url, store_id, seller_id, marketplaces_ids, opts)
+  result = api_instance.cart_create(cart_id, store_url, opts)
   p result
 rescue SwaggerClient::ApiError => e
   puts "Exception when calling CartApi->cart_create: #{e}"

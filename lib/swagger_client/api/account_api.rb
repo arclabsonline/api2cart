@@ -24,8 +24,6 @@ module SwaggerClient
     # Add store to the account
     # @param cart_id Store’s identifier which you can get from cart_list method
     # @param store_url A web address of a store that you would like to connect to API2Cart
-    # @param amazon_seller_id Seller Id
-    # @param amazon_marketplaces_ids Comma separated marketplaces ids
     # @param [Hash] opts the optional parameters
     # @option opts [String] :bridge_url This parameter allows to set up store with custom bridge url (you must use store_root parameter if a bridge folder is not in the root folder of the store)
     # @option opts [String] :store_root Absolute path to the store root directory (used with \&quot;bridge_url\&quot; parameter)
@@ -42,6 +40,8 @@ module SwaggerClient
     # @option opts [String] :amazon_access_token Access token authorizing the app to access resources on behalf of a user
     # @option opts [String] :amazon_secret_key Amazon Secret Key
     # @option opts [String] :amazon_access_key_id Amazon Secret Key Id
+    # @option opts [String] :amazon_seller_id Seller Id
+    # @option opts [String] :amazon_marketplaces_ids Comma separated marketplaces ids
     # @option opts [String] :aspdotnetstorefront_api_user It&#39;s a AspDotNetStorefront account for which API is available
     # @option opts [String] :aspdotnetstorefront_api_pass AspDotNetStorefront API Password
     # @option opts [String] :bigcommerceapi_admin_account It&#39;s a BigCommerce account for which API is enabled
@@ -74,8 +74,8 @@ module SwaggerClient
     # @option opts [String] :volusion_login It&#39;s a Volusion account for which API is enabled
     # @option opts [String] :volusion_password Volusion API Password
     # @return [InlineResponse2006]
-    def account_cart_add(cart_id, store_url, amazon_seller_id, amazon_marketplaces_ids, opts = {})
-      data, _status_code, _headers = account_cart_add_with_http_info(cart_id, store_url, amazon_seller_id, amazon_marketplaces_ids, opts)
+    def account_cart_add(cart_id, store_url, opts = {})
+      data, _status_code, _headers = account_cart_add_with_http_info(cart_id, store_url, opts)
       return data
     end
 
@@ -83,8 +83,6 @@ module SwaggerClient
     # Add store to the account
     # @param cart_id Store’s identifier which you can get from cart_list method
     # @param store_url A web address of a store that you would like to connect to API2Cart
-    # @param amazon_seller_id Seller Id
-    # @param amazon_marketplaces_ids Comma separated marketplaces ids
     # @param [Hash] opts the optional parameters
     # @option opts [String] :bridge_url This parameter allows to set up store with custom bridge url (you must use store_root parameter if a bridge folder is not in the root folder of the store)
     # @option opts [String] :store_root Absolute path to the store root directory (used with \&quot;bridge_url\&quot; parameter)
@@ -101,6 +99,8 @@ module SwaggerClient
     # @option opts [String] :amazon_access_token Access token authorizing the app to access resources on behalf of a user
     # @option opts [String] :amazon_secret_key Amazon Secret Key
     # @option opts [String] :amazon_access_key_id Amazon Secret Key Id
+    # @option opts [String] :amazon_seller_id Seller Id
+    # @option opts [String] :amazon_marketplaces_ids Comma separated marketplaces ids
     # @option opts [String] :aspdotnetstorefront_api_user It&#39;s a AspDotNetStorefront account for which API is available
     # @option opts [String] :aspdotnetstorefront_api_pass AspDotNetStorefront API Password
     # @option opts [String] :bigcommerceapi_admin_account It&#39;s a BigCommerce account for which API is enabled
@@ -133,7 +133,7 @@ module SwaggerClient
     # @option opts [String] :volusion_login It&#39;s a Volusion account for which API is enabled
     # @option opts [String] :volusion_password Volusion API Password
     # @return [Array<(InlineResponse2006, Fixnum, Hash)>] InlineResponse2006 data, response status code and response headers
-    def account_cart_add_with_http_info(cart_id, store_url, amazon_seller_id, amazon_marketplaces_ids, opts = {})
+    def account_cart_add_with_http_info(cart_id, store_url, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: AccountApi.account_cart_add ..."
       end
@@ -145,14 +145,6 @@ module SwaggerClient
       if @api_client.config.client_side_validation && store_url.nil?
         fail ArgumentError, "Missing the required parameter 'store_url' when calling AccountApi.account_cart_add"
       end
-      # verify the required parameter 'amazon_seller_id' is set
-      if @api_client.config.client_side_validation && amazon_seller_id.nil?
-        fail ArgumentError, "Missing the required parameter 'amazon_seller_id' when calling AccountApi.account_cart_add"
-      end
-      # verify the required parameter 'amazon_marketplaces_ids' is set
-      if @api_client.config.client_side_validation && amazon_marketplaces_ids.nil?
-        fail ArgumentError, "Missing the required parameter 'amazon_marketplaces_ids' when calling AccountApi.account_cart_add"
-      end
       # resource path
       local_var_path = "/account.cart.add.json"
 
@@ -160,8 +152,8 @@ module SwaggerClient
       query_params = {}
       query_params[:'cart_id'] = cart_id
       query_params[:'store_url'] = store_url
-      query_params[:'amazon_seller_id'] = amazon_seller_id
-      query_params[:'amazon_marketplaces_ids'] = amazon_marketplaces_ids
+      query_params[:'amazon_seller_id'] = opts[:'amazon_seller_id'] if !opts[:'amazon_seller_id'].nil?
+      query_params[:'amazon_marketplaces_ids'] = opts[:'amazon_marketplaces_ids'] if !opts[:'amazon_marketplaces_ids'].nil?
       query_params[:'bridge_url'] = opts[:'bridge_url'] if !opts[:'bridge_url'].nil?
       query_params[:'store_root'] = opts[:'store_root'] if !opts[:'store_root'].nil?
       query_params[:'store_key'] = opts[:'store_key'] if !opts[:'store_key'].nil?
