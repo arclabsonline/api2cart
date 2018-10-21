@@ -66,7 +66,7 @@ module SwaggerClient
         :'message' => :'String',
         :'rating' => :'Integer',
         :'status' => :'String',
-        :'created_time' => :'DateTime',
+        :'created_time' => :'String',
         :'additional_fields' => :'Object',
         :'custom_fields' => :'Object'
       }

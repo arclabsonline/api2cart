@@ -81,8 +81,8 @@ module SwaggerClient
       {
         :'id' => :'String',
         :'parent_id' => :'String',
-        :'created_at' => :'DateTime',
-        :'modified_at' => :'DateTime',
+        :'created_at' => :'String',
+        :'modified_at' => :'String',
         :'name' => :'String',
         :'short_description' => :'String',
         :'description' => :'String',

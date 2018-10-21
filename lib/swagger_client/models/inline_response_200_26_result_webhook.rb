@@ -36,7 +36,7 @@ module SwaggerClient
       {
         :'webhook_id' => :'Integer',
         :'entity_id' => :'String',
-        :'time' => :'DateTime'
+        :'time' => :'String'
       }
     end
 

@@ -57,7 +57,7 @@ module SwaggerClient
         :'warehouse_id' => :'String',
         :'shipment_provider' => :'String',
         :'tracking_numbers' => :'Array<ShipmentTrackingNumber>',
-        :'created_at' => :'DateTime',
+        :'created_at' => :'String',
         :'items' => :'Array<ShipmentItems>',
         :'additional_fields' => :'Object',
         :'custom_fields' => :'Object'

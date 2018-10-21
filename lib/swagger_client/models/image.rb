@@ -25,9 +25,9 @@ module SwaggerClient
 
     attr_accessor :size
 
-    # attr_accessor :create_at
+    attr_accessor :create_at
 
-    # attr_accessor :modified_at
+    attr_accessor :modified_at
 
     attr_accessor :alt
 
@@ -50,8 +50,8 @@ module SwaggerClient
         :'file_name' => :'file_name',
         :'mime_type' => :'mime-type',
         :'size' => :'size',
-        # :'create_at' => :'create_at',
-        # :'modified_at' => :'modified_at',
+        :'create_at' => :'create_at',
+        :'modified_at' => :'modified_at',
         :'alt' => :'alt',
         :'avail' => :'avail',
         :'sort_order' => :'sort_order',
@@ -69,8 +69,8 @@ module SwaggerClient
         :'file_name' => :'String',
         :'mime_type' => :'String',
         :'size' => :'Integer',
-        # :'create_at' => :'DateTime',
-        # :'modified_at' => :'DateTime',
+        :'create_at' => :'String',
+        :'modified_at' => :'String',
         :'alt' => :'String',
         :'avail' => :'BOOLEAN',
         :'sort_order' => :'Integer',
@@ -108,13 +108,13 @@ module SwaggerClient
         self.size = attributes[:'size']
       end
 
-      # if attributes.has_key?(:'create_at')
-      #   self.create_at = attributes[:'create_at']
-      # end
+      if attributes.has_key?(:'create_at')
+        self.create_at = attributes[:'create_at']
+      end
 
-      # if attributes.has_key?(:'modified_at')
-      #   self.modified_at = attributes[:'modified_at']
-      # end
+      if attributes.has_key?(:'modified_at')
+        self.modified_at = attributes[:'modified_at']
+      end
 
       if attributes.has_key?(:'alt')
         self.alt = attributes[:'alt']
@@ -165,8 +165,8 @@ module SwaggerClient
           file_name == o.file_name &&
           mime_type == o.mime_type &&
           size == o.size &&
-          # create_at == o.create_at &&
-          # modified_at == o.modified_at &&
+          create_at == o.create_at &&
+          modified_at == o.modified_at &&
           alt == o.alt &&
           avail == o.avail &&
           sort_order == o.sort_order &&
@@ -184,7 +184,7 @@ module SwaggerClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, http_path, file_name, mime_type, size, alt, avail, sort_order, type, additional_fields, custom_fields].hash
+      [id, http_path, file_name, mime_type, size, create_at, modified_at, alt, avail, sort_order, type, additional_fields, custom_fields].hash
     end
 
     # Builds the object from hash

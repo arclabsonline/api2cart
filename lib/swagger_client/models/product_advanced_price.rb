@@ -57,8 +57,8 @@ module SwaggerClient
         :'avail' => :'BOOLEAN',
         :'group_id' => :'String',
         :'quantity_from' => :'Float',
-        :'start_time' => :'DateTime',
-        :'expire_time' => :'DateTime',
+        :'start_time' => :'String',
+        :'expire_time' => :'String',
         :'additional_fields' => :'Object',
         :'custom_fields' => :'Object'
       }

@@ -56,7 +56,7 @@ module SwaggerClient
         :'fee' => :'Float',
         :'tax' => :'Float',
         :'total_refunded' => :'Float',
-        :'time' => :'DateTime',
+        :'time' => :'String',
         :'comment' => :'String',
         :'refunded_items' => :'Array<OrderStatusRefundItem>',
         :'additional_fields' => :'Object',

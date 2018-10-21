@@ -48,9 +48,9 @@ module SwaggerClient
       {
         :'value' => :'Float',
         :'avail' => :'BOOLEAN',
-        :'created_at' => :'DateTime',
-        :'modified_at' => :'DateTime',
-        :'expired_at' => :'DateTime',
+        :'created_at' => :'String',
+        :'modified_at' => :'String',
+        :'expired_at' => :'String',
         :'additional_fields' => :'Object',
         :'custom_fields' => :'Object'
       }

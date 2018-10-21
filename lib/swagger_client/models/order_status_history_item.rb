@@ -48,7 +48,7 @@ module SwaggerClient
       {
         :'id' => :'String',
         :'name' => :'String',
-        :'modified_time' => :'DateTime',
+        :'modified_time' => :'String',
         :'notify' => :'BOOLEAN',
         :'comment' => :'String',
         :'additional_fields' => :'Object',
