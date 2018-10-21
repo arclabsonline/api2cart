@@ -108,13 +108,13 @@ module SwaggerClient
         self.size = attributes[:'size']
       end
 
-      if attributes.has_key?(:'create_at')
-        self.create_at = attributes[:'create_at']
-      end
+      # if attributes.has_key?(:'create_at')
+      #   self.create_at = attributes[:'create_at']
+      # end
 
-      if attributes.has_key?(:'modified_at')
-        self.modified_at = attributes[:'modified_at']
-      end
+      # if attributes.has_key?(:'modified_at')
+      #   self.modified_at = attributes[:'modified_at']
+      # end
 
       if attributes.has_key?(:'alt')
         self.alt = attributes[:'alt']
